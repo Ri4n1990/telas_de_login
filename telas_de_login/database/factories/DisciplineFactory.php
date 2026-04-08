@@ -6,7 +6,7 @@ use App\Models\Discipline;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 
-class DisciplineFactoy extends Factory{
+class DisciplineFactory extends Factory{
 
     protected $table = Discipline::class;
 

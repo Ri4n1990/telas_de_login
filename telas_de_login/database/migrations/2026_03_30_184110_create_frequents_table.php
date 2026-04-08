@@ -14,8 +14,6 @@ return new class extends Migration
             $table->charset('utf8mb4');
             $table->collation('utf8mb4_unicode_ci');
 
-
-
             $table->uuid('id')->primary(true);
             $table->uuid('id_student')->nullable(false);
             $table->uuid('id_discipline')->nullable(false);

@@ -6,15 +6,22 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use App\Models\Student;
 use App\Models\Teatcher;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Discipline extends Model{
-
+    use HasFactory;
     use HasUuids;
 
     protected $table = 'discipline';
     protected $keyType = 'string';
     protected $primaryKey = 'cod_discipline';
+    public $incrementing = false;
+
+    public function uniqueIds()
+    {
+        return ['cod_discipline'];
+    }
 
     public function student():BelongsToMany{
 
