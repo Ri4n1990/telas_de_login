@@ -9,7 +9,7 @@ use App\Models\Discipline;
 use App\Models\Teatcher;
 
 
-class StudentDisciplineSeeder extends Seeder{
+class StudentTeatcherSeeder extends Seeder{
 
     public function run():void{
 

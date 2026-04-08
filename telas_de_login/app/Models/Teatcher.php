@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 
 use App\Models\Discipline;
 
 
-class Teatcher extends Model{
+
+class Teatcher extends Authenticatable{
 
     use HasFactory;
     use HasUuids;

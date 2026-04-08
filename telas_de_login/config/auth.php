@@ -42,6 +42,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'teatcher' => [
+            'driver' => 'session',
+            'provider' => 'teatcher',
+        ],
+
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'student',
+        ]
     ],
 
     /*
@@ -66,6 +76,17 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
         ],
+
+        'teatcher' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teatcher::class,
+        ],
+
+        'student' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ]
+
 
         // 'users' => [
         //     'driver' => 'database',

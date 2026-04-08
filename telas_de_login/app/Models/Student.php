@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Attributes\UsePolicy;
+use App\Policies\StudentPolicy;
 
 use App\Models\Discipline;
 
 
-
-class Student extends Model{
+#[UsePolicy(StudentPolicy::class)]
+class Student extends Authenticatable{
 
     use HasFactory;
     use HasUuids;
@@ -22,10 +25,7 @@ class Student extends Model{
     public $incrementing = false;
 
 
-    public function uniqueIds()
-    {
-        return ['id'];
-    }
+    
 
 
     public function disciplines():BelongsToMany{
