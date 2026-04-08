@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Teatcher;
 use App\Models\Discipline;
 use App\Models\Frequents;
+use App\Models\Teatches;
 
 
 Route::get('/', function () {
@@ -19,15 +20,9 @@ Route::get('/criar_reg', function(){
 
     try{
 
-        $discipline = Discipline::factory()->create();
+        Teatches::factory()->count(3);
 
-        Student::factory()->count(3)->hasAttached($discipline,
-        fn () => [
-            'id' => fake()->uuid()
-        ]
         
-        
-        )->create();
 
         echo 'deu certo';
 

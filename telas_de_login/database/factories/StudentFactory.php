@@ -16,7 +16,7 @@ class StudentFactory extends Factory{
 
             'id' => fake()->unique()->uuid(),
             'name' => fake()->userName(),
-            'email' => fake()->safeEmail(),
+            'email' => fake()->unique()->safeEmail(),
             'gender' => fake()->randomElement(['masculino', 'feminino']),
             'birth' => fake()->date(),
             'school_year' =>  fake()->randomNumber(1,9),
