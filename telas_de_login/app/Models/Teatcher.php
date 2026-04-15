@@ -22,6 +22,8 @@ class Teatcher extends Authenticatable{
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     public $incrementing = false;
+    protected $guarded = ['created_at', 'updated_at','remember_token'];
+    protected $hidden = ['created_at', 'updated_at','id','remember_token','password'];
 
     public function uniqueIds()
     {
