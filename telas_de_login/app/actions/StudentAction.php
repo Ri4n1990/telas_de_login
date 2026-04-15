@@ -4,9 +4,25 @@ namespace App\actions;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Exception;
 
 class StudentAction {
+
+    public function login($credentials):bool{
+        try{
+
+            
+            return Auth::guard('student')->attempt($credentials,true);
+
+
+        }catch(Exception $err){
+            
+            throw new \RuntimeException('serviço de autenticação indisponível');
+
+        }
+
+    }
 
     public function exists($id):bool{
 
@@ -16,13 +32,14 @@ class StudentAction {
 
     }
 
-    public function create($credentials){
+    public function create($credentials):bool{
         DB::beginTransaction();
 
         try{
 
            $student =  Student::create($credentials);
            DB::commit();
+           
            if($student->exists){
             return true;
            }
@@ -30,9 +47,8 @@ class StudentAction {
 
 
         }catch(Exception $err){
-            echo 'passei aqui';
             DB::rollBack();
-            return $err;
+            return false;
 
         }
 

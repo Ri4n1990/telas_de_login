@@ -1,41 +1,33 @@
 <?php
 
-use App\Models\Student;
-use App\Models\Teatcher;
+use App\Models\Discipline;
 use Illuminate\Support\Facades\Route;
+use App\actions\DisciplineAction;
 use App\actions\StudentAction;
+
 use App\Http\Resources\StudentDisciplineResource;
+use Illuminate\Support\Facades\Auth;
 
 
-Route::get('/', function () {
+Route::get('/', function (StudentAction $student) {
 
+    $info = ['email' => 'rianmagnus5791@gmail.com', 'password' => 'password'];
+    $resp = $student->login($info);
+
+    echo $resp;
+    
     return 'olá';
 
 
     
 });
 
-Route::get('/existe/{id}', function(StudentAction $student, string $id){
-    try{
-
-        $credenciais = [
-            'name' => 'jorge loko',
-            'email' => 'jorge44@loko.com',
-            'gender' => 'masculino',
-            'birth' => '2001-10-12',
-            'school_year' => 1,
-            'education' => 'ensino médio'
-        ];
-
-        return $student->create($credenciais);
-        
-    }catch(Exception $err){
-
-        return response('o',500);
-
-    }
+Route::get('/pega/{id}', function(DisciplineAction $discipline , string $id){
+    
+    return 'oi';
 
 });
+
 
 
 
